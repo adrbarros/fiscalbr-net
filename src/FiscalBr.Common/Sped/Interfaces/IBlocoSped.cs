@@ -4,8 +4,7 @@ using System.Text;
 
 namespace FiscalBr.Common.Sped.Interfaces
 {
-    public interface IEscreverArquivoSped
+    public interface IBlocoSped
     {
-        void EscreverArquivo(string caminho, Encoding encoding);
     }
 }

@@ -6,12 +6,6 @@ using System.Text;
 
 namespace FiscalBr.Common.Sped
 {
-    public sealed class SpedEventArgs : EventArgs
-    {
-        public string Linha { get; set; }
-        public RegistroBaseSped Registro { get; set; }
-    }
-
     public abstract class ArquivoSped
     {
         public event EventHandler<SpedEventArgs> AoProcessarLinha;
@@ -159,7 +153,7 @@ namespace FiscalBr.Common.Sped
         /// Adicionar um objeto do tipo RegistroBaseSped no atributo "Linhas".
         /// Caso existe alguma falha na geração, adiciona a falha no atributo "Erros"
         /// </summary>
-        protected void EscreverLinha(RegistroBaseSped registro)
+        protected void EscreverLinha(RegistroSped registro)
         {
             string erro;
             string texto = registro.EscreverCampos(out erro, null, true);
@@ -176,8 +170,8 @@ namespace FiscalBr.Common.Sped
                 return;
 
             //Testa antes porque porque pode-se tratar de um bloco
-            if (registro is RegistroBaseSped)
-                EscreverLinha(registro as RegistroBaseSped);
+            if (registro is RegistroSped)
+                EscreverLinha(registro as RegistroSped);
 
             var tipo = registro.GetType();
 
@@ -192,7 +186,7 @@ namespace FiscalBr.Common.Sped
                 if (valor == null)
                     continue;
 
-                if (valor is RegistroBaseSped)
+                if (valor is RegistroSped)
                     GerarComFilhos(valor);
 
                 //Lista de objetos
