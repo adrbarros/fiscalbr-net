@@ -95,7 +95,7 @@ namespace FiscalBr.Test.Sped.Enums
 
         [Theory]
         [InlineData(VersaoLeiauteSped.V2, CodVersaoSpedFiscal.V2)]
-        [InlineData(null, CodVersaoSpedFiscal.V17)]
+        [InlineData(null, CodVersaoSpedFiscal.V18)]
         public void ObterEnumVersaoEFDFiscalTest(VersaoLeiauteSped? v, CodVersaoSpedFiscal? resultadoEsperado)
         {
             var maiorVersao = (int)EnumHelpers.GetEnumMaxValue<CodVersaoSpedFiscal>();
@@ -116,7 +116,7 @@ namespace FiscalBr.Test.Sped.Enums
         [InlineData(VersaoLeiauteSped.V9, 9)]
         [InlineData(VersaoLeiauteSped.V10, 10)]
         [InlineData(VersaoLeiauteSped.V17, 17)]
-        [InlineData(null, 17)]
+        [InlineData(null, 18)]
         public void ObterIntVersaoEFDFiscalTest(VersaoLeiauteSped? v, int versaoEsperada)
         {
             // Arrange
@@ -141,7 +141,7 @@ namespace FiscalBr.Test.Sped.Enums
         }
 
         [Theory]
-        [InlineData(16)]
+        [InlineData(17)]
         public void ObterNumeroVersoesEFDFiscalTest(int qtdEsperada)
         {
             var efd = new ArquivoEFDFiscalV2();
